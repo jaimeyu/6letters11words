@@ -1,5 +1,5 @@
 def findSubWordsIn(word):
-    print "Attempting to find subwords for " + word.strip() + "."
+    #print "Attempting to find subwords for " + word.strip() + "."
     qSubWords = []
     words = open("list.txt", "r") #readonly
     for candidate in words:
@@ -16,7 +16,6 @@ words = open("list.txt", "r") #readonly
 
 qWords = []
 
-
 for word in words:
     word = word.strip()
 
@@ -32,7 +31,7 @@ for word in words:
         collection.append(subWords)
         qWords.append(collection)
 
-#print qWords
+print "Results: Words that have been found to have 11 or more subwords within it."
 for item in qWords:
     print "*************************************"
     print "'" + item[0] +"' has the following subwords:"

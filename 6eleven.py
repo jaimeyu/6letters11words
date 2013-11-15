@@ -1,16 +1,20 @@
 def findSubWordsIn(word):
-    #print "Attempting to find subwords for " + word.strip() + "."
+    print "Attempting to find subwords for " + word.strip() + "."
     qSubWords = []
     words = open("list.txt", "r") #readonly
     for candidate in words:
         candidate = candidate.strip()
-        #print "Checking if " + candidate + " is a substring of " + word
-        if -1 != word.find(candidate,0,len(word)):
-            if candidate != word:
-                #print "Found candidate: " + candidate
-                qSubWords.append(candidate)
+        # For now, only use words of 2 or more letters.
+        if len(candidate) < len(word) and len(candidate) > 1:
+            #print "Checking if " + candidate + " is a substring of " + word
+            if -1 != word.find(candidate,0,len(word)):
+                if candidate != word:
+                    #print "Found candidate: " + candidate
+                    qSubWords.append(candidate)
     return qSubWords
 
+def appendWordCallback():
+    print callback
 
 words = open("list.txt", "r") #readonly
 
@@ -20,7 +24,7 @@ for word in words:
     word = word.strip()
 
     #optimization.
-    if len(word) < 6:
+    if len(word) != 6:
         continue
     subWords = []
     subWords = findSubWordsIn(word)

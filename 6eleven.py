@@ -1,6 +1,6 @@
 import thread
 
-def findSubWordsIn(word,lwords):
+def findSubWordsIn(word,lwords,results):
     print "Attempting to find subwords for " + word.strip() + "."
     qSubWords = []
     for candidate in lwords:
@@ -12,6 +12,15 @@ def findSubWordsIn(word,lwords):
                 if candidate != word:
                     #print "Found candidate: " + candidate
                     qSubWords.append(candidate)
+
+    if ( len(qSubWords) > 10):
+        print "Found a wordk with 11+ sub words:"
+        print qSubWords
+        collection = []
+        collection.append(word)
+        collection.append(qSubWords)
+        qWords.append(collection)
+
     return qSubWords
 
 words = open("list.txt", "r") #readonly
@@ -29,15 +38,7 @@ for word in lwords:
     if len(word) != 6:
         continue
     subWords = []
-    subWords = findSubWordsIn(word,lwords)
-    #subWords = findSubWordsIn("abbas")
-    if ( len(subWords) > 10):
-        print "Found a wordk with 11+ sub words:"
-        print subWords
-        collection = []
-        collection.append(word)
-        collection.append(subWords)
-        qWords.append(collection)
+    subWords = findSubWordsIn(word,lwords,qWords)
 
 print "Results: Words that have been found to have 11 or more subwords within it."
 for item in qWords:

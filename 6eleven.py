@@ -30,6 +30,8 @@ for word in words:
     subWords = findSubWordsIn(word)
     #subWords = findSubWordsIn("abbas")
     if ( len(subWords) > 10):
+        print "Found a wordk with 11+ sub words:"
+        print subWords
         collection = []
         collection.append(word)
         collection.append(subWords)
@@ -38,7 +40,7 @@ for word in words:
 print "Results: Words that have been found to have 11 or more subwords within it."
 for item in qWords:
     print "*************************************"
-    print "'" + item[0] +"' has the following subwords:"
+    print "'" + item[0] +"' has the following #" + str(len(item[1])) + " of subwords:"
     print item[1]
 
 
